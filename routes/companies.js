@@ -42,6 +42,9 @@ module.exports = (app, models, utils, HttpStatus) => {
   });
 
   app.delete('/companies/:name', (req, res, next) => {
-
+    Company.remove({name: utils.caseInsensitiveRegex(req.params.name)}, (err, data) => {
+      if (err) { next(err); }
+      else { res.send(data === null ? HttpStatus.NOT_FOUND : HttpStatus.NO_CONTENT); }
+    });
   });
 };
