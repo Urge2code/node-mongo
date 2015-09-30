@@ -38,7 +38,15 @@ module.exports = (app, models, utils, HttpStatus) => {
   });
 
   app.put('/companies/:name', (req, res, next) => {
-
+    let condition = { name: utils.caseInsensitiveRegex(req.params.name) };
+    let update = {};
+    for (let prop in req.body) {
+      update[prop] = req.body[prop];
+    }
+    Company.update(condition, update, (err, data) => {
+      if (err) { next(err); }
+      else { res.send(data === null ? HttpStatus.NOT_FOUND : HttpStatus.NO_CONTENT); }
+    });
   });
 
   app.delete('/companies/:name', (req, res, next) => {
