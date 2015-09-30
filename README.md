@@ -1,2 +1,2 @@
 # node-mongo
-Playing around with Node &amp; MongoDB
+Playing around with Node (Express.js) and MongoDB (mongoose)

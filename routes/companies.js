@@ -18,7 +18,23 @@ module.exports = (app, models, utils, HttpStatus) => {
   });
 
   app.post('/companies', (req, res, next) => {
-
+    Company.findOne({name: utils.caseInsensitiveRegex(req.body.name)}, (err, data) => {
+      if (err) { next(err); }
+      else {
+        if (data) {
+          res.sendStatus(HttpStatus.CONFLICT);
+        } else {
+          let newCompany = new Company({
+            name: req.body.name,
+            type: req.body.type
+          });
+          newCompany.save((err, data) => {
+            if (err) { next(err); }
+            else { res.send(HttpStatus.CREATED, data); }
+          });
+        }
+      }
+    });
   });
 
   app.put('/companies/:name', (req, res, next) => {
