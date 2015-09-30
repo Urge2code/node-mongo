@@ -1,0 +1,26 @@
+{
+  "name": "node-mongo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "http-status": "^0.2.0",
+    "mongoose": "^4.1.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Urge2code/node-mongo.git"
+  },
+  "author": "Thibaut Van Spaandonck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Urge2code/node-mongo/issues"
+  },
+  "homepage": "https://github.com/Urge2code/node-mongo#readme"
+}

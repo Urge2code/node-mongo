@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "db": {
+      "user": "dbadmin",
+      "pwd": "C0mplexPwd",
+      "host": "127.0.0.1",
+      "port": 27017,
+      "db": "local",
+      "authdb": "admin"
+    }
+  },
+  "test": {
+    "db": {
+    }
+  },
+  "prod": {
+    "db": {
+    }
+  }
+}
